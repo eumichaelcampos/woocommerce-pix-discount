@@ -1,7 +1,7 @@
 # WooCommerce Pix Discount
 
 ## Descrição
-O WooCommerce Pix Discount é um plugin para WooCommerce que aplica um desconto de 5% no valor normal do produto e exibe uma mensagem informando o desconto adicional de 4% para pagamentos via Pix. Além disso, o plugin adiciona um campo de quantidade ao lado do botão de compra na listagem de produtos.
+O WooCommerce Pix Discount é um plugin para WooCommerce que aplica um desconto de 4% no valor normal do produto e exibe uma mensagem informando o desconto adicional de 4% para pagamentos via Pix. Além disso, o plugin adiciona um campo de quantidade ao lado do botão de compra na listagem de produtos.
 
 ## Funcionalidades
 - Aplica um desconto de 5% no valor original do produto.
