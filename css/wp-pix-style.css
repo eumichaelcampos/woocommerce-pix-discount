@@ -1,0 +1,41 @@
+.pix-discount-message {
+    font-size: 14px;
+    color: #d3d3d3;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: flex;
+}
+#pix-produtos {
+    width: 20px;
+    margin-right: 5px;
+}
+#pix-produtos .cls-1 {
+    fill: #d3d3d3 !important;
+    stroke-width: 0px;
+}
+.woocommerce-loop-product__buttons {
+    width: 105px;
+    float: left;
+    margin-top: -5px;
+    margin-left: 10px;
+}
+.quantity {
+    width: 60px;
+    float: left;
+}
+.quantity input.input-text.qty.text {
+    height: 49px;
+}
+.quantity-comprar {
+    display: flex;
+    align-items: center;
+}
+.quantity-comprar .button {
+    display: inline-block;
+    margin-top: 0 !important;
+    margin-left: 10px;
+    width: 100%; 
+}
+.quantity-comprar button.button.add_to_cart_button.ajax_add_to_cart {
+    margin-left: 10px;
+}
