@@ -1,8 +1,3 @@
-Claro! Vamos criar um arquivo `README.md` detalhado para o GitHub, documentando todas as funcionalidades do plugin, como ele funciona, como usá-lo, e como configurá-lo.
-
-### Conteúdo do `README.md`
-
-```markdown
 # WooCommerce Pix Discount
 
 ## Descrição
