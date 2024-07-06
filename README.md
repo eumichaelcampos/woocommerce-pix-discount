@@ -1,7 +1,7 @@
 # WooCommerce Pix Discount
 
 ## Descrição
-O WooCommerce Pix Discount é um plugin para WooCommerce que aplica um desconto de 4% no valor normal do produto e exibe uma mensagem informando o desconto adicional de 4% para pagamentos via Pix. Além disso, o plugin adiciona um campo de quantidade ao lado do botão de compra na listagem de produtos.
+O WooCommerce Pix Discount é um plugin para WooCommerce que aplica um desconto de 5% no valor normal do produto e exibe uma mensagem informando o desconto adicional de 4% para pagamentos via Pix. Além disso, o plugin adiciona um campo de quantidade ao lado do botão de compra na listagem de produtos.
 
 ## Funcionalidades
 - Aplica um desconto de 5% no valor original do produto.
@@ -121,3 +121,37 @@ public function modificar_template() {
     add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_price', 9 );
     remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
     add_action( 'woocommerce_after_shop_loop_item', array( $this, 'adicionar_campo_quantidade_e_botao_comprar' ), 10 );
+
+
+}
+```
+
+#### `wp_pix_adicionar_campo_quantidade_e_botao_comprar`
+Adiciona o campo de quantidade e o botão de compra ao template do produto.
+
+```php
+public function adicionar_campo_quantidade_e_botao_comprar() {
+    global $product;
+    if ( $product && $product->is_purchasable() && $product->is_in_stock() ) {
+        echo '<form class="cart" action="' . esc_url( $product->add_to_cart_url() ) . '" method="post" enctype="multipart/form-data">';
+        echo '<div class="quantity-comprar">';
+        woocommerce_quantity_input( array(
+            'min_value'   => apply_filters( 'woocommerce_quantity_input_min', 1, $product ),
+            'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
+            'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( wp_unslash( $_POST['quantity'] ) ) : 1,
+        ) );
+        echo '<button type="submit" class="button add_to_cart_button ajax_add_to_cart" data-product_id="' . esc_attr( $product->get_id() ) . '" data-product_sku="' . esc_attr( $product->get_sku() ) . '" aria-label="' . esc_attr( $product->add_to_cart_description() ) . '">' . esc_html( $product->add_to_cart_text() ) . '</button>';
+        echo '</div>';
+        echo '</form>';
+    }
+}
+```
+
+### Adicionar e Remover Funcionalidades
+Para adicionar ou remover funcionalidades do plugin, edite o arquivo `class-wc-pix-discount.php`. Certifique-se de seguir as melhores práticas de desenvolvimento e segurança ao fazer alterações.
+
+## Contribuindo
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## Licença
+Este plugin é distribuído sob a licença GPLv2 ou posterior.
